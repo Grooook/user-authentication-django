@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% block title %}Sign in{% endblock title %}
+
+{% block content %}
+    <h2 class="text-center m-3">Sign in</h2>
+    <div class="d-flex justify-content-center">
+    {% if user.is_authenticated %}
+        <p>You are already logged in</p>
+        <a class="btn btn-success" href="{% url 'accounts:index' %}">Go to profie</a>
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form layout="horizontal" %}
+            <div class="float-end">
+                {% buttons submit="Log in" %}{% endbuttons %}
+            </div>
+        </form>
+    {% endif %}
+    </div>
+{% endblock content %}

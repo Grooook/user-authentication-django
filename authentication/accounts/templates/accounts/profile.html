@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<h2>Welcome, {{ request.user.username }}</h2>
+<div class="d-flex justify-content-center m-5">
+    <a class="btn btn-success m-2" href="{% url 'accounts:change_user' %}">Change user info</a>
+    <a class="btn btn-danger m-2" href="{% url 'accounts:delete' %}">Delete profile</a>
+    <a class="btn btn-primary m-2" href="{% url 'accounts:logout' %}">log out</a>
+</div>
+{% endblock content %}

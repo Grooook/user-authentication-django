@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% block title %}Delete User{% endblock title %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+    {% buttons submit="Delete" %}{% endbuttons %}
+</form>
+{% endblock content %}
