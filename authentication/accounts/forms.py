@@ -27,7 +27,7 @@ class RegistrationUserForm(forms.ModelForm):
         password2 = self.cleaned_data['password2']
         if password1:
             password_validation.validate_password(password1)
-        elif password1 and password2 and password1 != password2:
+        if password1 and password2 and password1 != password2:
             errors = {'password2': ValidationError(
                 'Passwords are not similar', code='password_mismatch'
             )}
